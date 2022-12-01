@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.trianafy.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.salesianostriana.dam.trianafy.views.View;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,9 +20,12 @@ public class Song {
     @GeneratedValue
     private Long id;
 
+    @JsonView(View.Base.class)
     private String title;
+    @JsonView(View.Base.class)
     private String album;
     @Column(name = "year_of_song")
+    @JsonView(View.Base.class)
     private String year;
 
     @ManyToOne(fetch = FetchType.EAGER)
